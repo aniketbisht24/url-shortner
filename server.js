@@ -4,6 +4,8 @@ const ShortUrl = require('./modals/shortUrl')
 
 const app = express();
 
+app.enable('trust proxy')
+
 const uri = "mongodb+srv://aniketbisht98:aniketbisht98@url-shortner.lbrxk.mongodb.net/?retryWrites=true&w=majority"
 
 mongoonse.connect(uri, {
@@ -21,7 +23,7 @@ app.get('/', async(req, res) => {
     const response = await ShortUrl.find();
     
     if (response==null){
-        return res.sendStatus(200);
+        return res.sendStatus(404);
     }
     res.render('index', {shortUrls: response});
 })
