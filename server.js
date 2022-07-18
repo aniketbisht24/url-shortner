@@ -1,7 +1,6 @@
 const express= require('express');
 const mongoonse = require('mongoose');
 const ShortUrl = require('./modals/shortUrl')
-console.log("hello")
 
 const app = express();
 
