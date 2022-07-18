@@ -25,7 +25,7 @@ app.get('/', async(req, res) => {
 
 app.get('/:shortUrl', async (req, res) => {
 
-    const {params: {shortUrl: requestUrl}} = requestUrl;
+    const {params: {shortUrl: requestUrl}} = req;
 
     const shortUrl = await ShortUrl.findOne({
         short: requestUrl
