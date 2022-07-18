@@ -20,6 +20,9 @@ app.listen(process.env.PORT || 3000);
 app.get('/', async(req, res) => {
     const response = await ShortUrl.find();
     
+    if (response==null){
+        return res.sendStatus(200);
+    }
     res.render('index', {shortUrls: response});
 })
 
