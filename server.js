@@ -20,9 +20,8 @@ app.listen(process.env.PORT || 8000);
 
 app.get('/', async(req, res) => {
     const response = await ShortUrl.find();
+    
     res.render('index', {shortUrls: response});
-
-    // res.render('index', {shortUrls});
 })
 
 app.get('/:shortUrl', async (req, res) => {
@@ -41,6 +40,7 @@ app.get('/:shortUrl', async (req, res) => {
 
     res.redirect(shortUrl.full);
 })
+
 app.post('/shortUrls', async(req, res) => {
     const {body: {fullUrl}} = req;
 
