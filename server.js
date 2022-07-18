@@ -9,14 +9,13 @@ const uri = "mongodb+srv://aniketbisht98:aniketbisht98@url-shortner.lbrxk.mongod
 mongoonse.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-}).then((result) => console.log("connected"
-)).catch(err => console.log(err));
+})
 
 app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({extended: false}))
 
-app.listen(process.env.PORT || 8000);
+app.listen(process.env.PORT || 3000);
 
 app.get('/', async(req, res) => {
     const response = await ShortUrl.find();
